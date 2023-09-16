@@ -4,7 +4,7 @@
  *
  * Return: return type of number d or i
 */
-int print_int (va_list prmtrs)
+int print_int (va_list args)
 {
-	int ntgr
+	int ntgr;
 }

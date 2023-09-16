@@ -30,6 +30,6 @@ return (_puts(str));
 */
 int _prnt_percent(va_list args)
 {
-putchar('%');
+_putchar('%');
 return (1);
 }

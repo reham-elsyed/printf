@@ -17,10 +17,9 @@ int _puts(char *strng);
  * @specfr: format input
  * @f: function for format
  */
-typedef struct specfyr;
-{
+typedef struct specfyr{
     char *specfyr;
-    int (*f)(va_list, params_t);
+    int (*f)(va_list);
 }specfyr_t;
 
 /**
@@ -31,9 +30,9 @@ int _printf(const char *format, ...);
 
 
 /***task 0**/
-int _prnt_char(va_list );
-int _prnt_string(va_list );
-int _prnt_percent(va_list );
+int _prnt_char(va_list args );
+int _prnt_string(va_list args);
+int _prnt_percent(va_list);
 
 
 /***********task 1**********/
@@ -44,12 +43,12 @@ int _prnt_int(va_list );
 int _prnt_binary(va_list );
 
 /****task 3******/
-
+/**
 int _prnt_unsigned(va_list );
 int _prnt_octal(va_list ap, params_t *params);
 int _prnt_hex(va_list );
 int _prnt_HEX(va_list );
-
+*/
 /*** task 4*****/
 
 #define OUTPUT_BUF_SIZE 1024
