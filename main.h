@@ -7,91 +7,66 @@
 #include <stdarg.h>
 
 
+
+#define UNUSED(x) (void)(x)
+#define BUFF_SIZE 1024
+
+/* FLAGS */
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
+
 /**
- * _puts_putchar.c file
+ * struct: to hold all flags
 */
-int _putchar(int ch);
-int _puts(char *strng);
-/**
- * struct specfr - struct for specifier
- * @specfr: format input
- * @f: function for format
- */
-typedef struct specfyr{
-    char *specfyr;
-    int (*f)(va_list);
-}specfyr_t;
+struct Flag
+{
+char flagChar;
+int flagValue;
+};
 
 /**
- * _printf function to print to stout
+ * struct fmt - Struct op
+ *
+ * @fmt: The format.
+ * @fn: The function associated.
  */
 
-int _printf(const char *format, ...);
+struct fmt {
+    char fmt;
+    int (*fn)(va_list, char[], int, int, int, int);
+};
 
 
-/***task 0**/
-int _prnt_char(va_list args );
-int _prnt_string(va_list args);
-int _prnt_percent(va_list);
 
+typedef struct fmt fmt_t;
 
+/**macros for size*/
+
+#define S_LONG 2
+#define S_SHORT 1
+
+/**functions*/
+
+int print_char(va_list prnt_buffes, char buffer[],
+        int flags, int width, int precision, int size);
+
+int print_percent(va_list prnt_buffes, char buffer[],
+        int flags, int width, int precision, int size);
+int print_string(va_list prnt_buffes, char buffer[],
+int flags, int width, int precision, int size);
+
+int is_digit(char c);
+int get_size(const char *format, int *n);
+nt get_precision(const char *format, int *n, va_list args);
+int get_flags(const char *format, int *i);
 /***********task 1**********/
 
-int _prnt_int(va_list );
+int _prnt_int(va_list hndl, handle_t *handler);
 
 /******task 2******/
-int _prnt_binary(va_list );
+int _prnt_binary(va_list hndl, handle_t *handler);
 
 /****task 3******/
-/**
-int _prnt_unsigned(va_list );
-int _prnt_octal(va_list ap, params_t *params);
-int _prnt_hex(va_list );
-int _prnt_HEX(va_list );
-*/
-/*** task 4*****/
-
-#define OUTPUT_BUF_SIZE 1024
-#define BUF_FLUSH -1
-
-/******* task 5******/
-
-int _prnt_S(va_list );
-
-/****task 6****/
-
-int _prnt_address(va_list );
-/***task 13****/
-
-int _prnt_rev(va_list );
-
-/****task 14*****/
-
-int _prnt_rot13(va_list );
-
-/**
- * struct handle - check the struct to handle
- * @unsign: 'unsigned flag'
- * @plus_flag: '+'
- * @space_flag: ' '
- * @hashtag_flag: '#'
- * @h_modifier: 'h'
- * @l_modifier: 'l'
- * @width: 'width'
- * @precision: '%'
- * @zero_flag: '0'
- * @minus_flag: '-'
-*/
-typedef struct handler
-{
-unsigned int plus_flag : 1;
-unsigned int space_flag : 1;
-unsigned int hashtag_flag : 1;
-unsigned int h_modifier : 1;
-unsigned int l_modifier : 1;
-unsigned int width;
-unsigned int precision;
-unsigned int zero_flag : 1;
-unsigned int minus_flag : 1;
-} handle_t;
-#endif
