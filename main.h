@@ -98,5 +98,15 @@ int _prnt_rev(va_list hndl, handle_t *handler);
 
 int _prnt_rot13(va_list hndl, handle_t *handler);
 
+/****print_char****/
+
+int to_print_char(char chr);
+int digit_char(char chr);
+
+/*****get flags, width, precision, length modifier*****/
+
+int _getflags(const char *format, int *n);
+int _getwidth(const char *format, int *n, va_list args);
+int _getprecision(const char *format, int *n, va_list args);
 
 #endif
