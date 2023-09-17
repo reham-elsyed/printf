@@ -68,5 +68,22 @@ int _prnt_int(va_list hndl, handle_t *handler);
 
 /******task 2******/
 int _prnt_binary(va_list hndl, handle_t *handler);
+/****print_char****/
+
+int to_print_char(char chr);
+int digit_char(char chr);
+
+/*****get flags, width, precision, length modifier*****/
+
+int _getflags(const char *format, int *n);
+int _getwidth(const char *format, int *n, va_list args);
+int _getprecision(const char *format, int *n, va_list args);
 
 /****task 3******/
+
+/***_putchar file**/
+long int convert_size_unsgnd(unsigned long int nums, int sze);
+long int convert_size_number(long int nums, int size);
+int append_hexa_code(char ascii_code, char buffer[], int i);
+_putchar(ch c);
+_put(char *str);
