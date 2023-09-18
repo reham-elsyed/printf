@@ -26,10 +26,7 @@ int _printf(const char *format, ...)
 				prntd_ch++;
 			}
 			else if (format[n] == 's')
-			{
-				prntd_str = our_puts(va_arg(args, char *));
-				prntd_ch += (prntd_str - 1);
-			}
+    prntd_str += print_string(args);
 			else if (format[n + 1] == '%')
 			{
 				our_putchar('%');

@@ -9,27 +9,24 @@
 int print_string(va_list args)
 {
 char *str = va_arg(args, char *);
-int count = 0;
-
-if (str == NULL)
-str = "(null)";
-
-while (*str)
+int len = 0;
+while (str[len] != '\0')
 {
-if (*str >= 32 && *str < 127)
-{
-our_putchar(*str);
-count++;
+putchar(str[len]);
+len++;
 }
+return (len);
+}
+
+/**
+ * _strlen - function that return the length of a string
+ * @s: input value
+ * Return: length success
+ */
+int _strlen(char *s)
+{
+if (*s == '\0')
+return (0);
 else
-{
-our_putchar('\\');
-our_putchar('x');
-our_putchar((*str >> 4) + '0');
-our_putchar((*str & 0x0F) + '0');
-count += 4;
-}
-str++;
-}
-return (count);
+return (0 + _strlen(s + 1));
 }
