@@ -68,7 +68,7 @@ return (write(1, str, len));
 }
 /**
  * print_percent - Prints a percent sign
- * @prnt_buffes: L000ista of arg
+ * @prnt_buffs: L000ista of arg
  * @buffer: Bufferarray to handle print
  * @flags:  Calc-active flags
  * @width: get width.
@@ -76,7 +76,7 @@ return (write(1, str, len));
  * @size: Size-specifier
  * Return: Number
  */
-int print_percent(va_list prnt_buffes, char buffer[],
+int print_percent(va_list prnt_buffs, char buffer[],
 	int flags, int width, int precision, int size)
 {
 UNUSED(prnt_buffes);
