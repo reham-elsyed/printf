@@ -10,7 +10,7 @@ int _getflags(const char *format, int *n)
 	int i, size, sum_flags = 0;
 
 	const char CH_FLAGS[] = {'+', ' ', '#', '0', '-', '\0'};
-	const int INT_FLAGS[] = {plus_flag, space_flag, hashtag_flag, zero_flag, minus_flag, 0};
+const int INT_FLAGS[] = {plus_flag, space_flag, hashtag_flag, zero_flag, minus_flag, 0};
 
 	size = *n + 1;
 	while (format[size] != '\0')

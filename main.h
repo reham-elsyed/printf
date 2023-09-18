@@ -54,20 +54,20 @@ int print_char(va_list prnt_buffes, char buffer[],
         int flags, int width, int precision, int size);
 
 int print_percent(va_list prnt_buffes, char buffer[],
-        int flags, int width, int precision, int size);
+int flags, int width, int precision, int size);
 int print_string(va_list prnt_buffes, char buffer[],
 int flags, int width, int precision, int size);
 
 int is_digit(char c);
 int get_size(const char *format, int *n);
-nt get_precision(const char *format, int *n, va_list args);
-int get_flags(const char *format, int *i);
+int get_precision(const char *format, int *n, va_list args);
+int get_flags(const char *format, int *n);
 /***********task 1**********/
 
-int _prnt_int(va_list hndl, handle_t *handler);
+int _print_int(va_list hndl, handle_t *handler);
 
 /******task 2******/
-int _prnt_binary(va_list hndl, handle_t *handler);
+int _print_binary(va_list hndl, handle_t *handler);
 /****print_char****/
 
 int to_print_char(char chr);
@@ -85,7 +85,11 @@ int _getprecision(const char *format, int *n, va_list args);
 long int convert_size_unsgnd(unsigned long int nums, int sze);
 long int convert_size_number(long int nums, int size);
 int append_hexa_code(char ascii_code, char buffer[], int i);
+
 int our_putchar (char ch);
 int our_puts(char *ch);
+
+/******handle file ***************/
+void init_handle(va_list hndl, handle_t *handler);
 
 #endif
