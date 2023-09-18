@@ -8,19 +8,13 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int prntd_ch , prntd_str, n;
+	unsigned int prntd_ch = 0, prntd_str = 0, n = 0;
 	va_list args;
 
 	va_start(args, format);
-prntd_ch = 0;
-	 prntd_str = 0;
 
-	for (n = 0; format && format[n] != '\0'; n++)
+	while (format && format[n] != '\0')
 	{
-		if (!format || (format[0] == '%' && format[1] == '\0'))
-		{
-			return (-1);
-		}
 		if (format[n] != '%')
 		{
 			our_putchar(format[n]);
@@ -32,9 +26,8 @@ prntd_ch = 0;
 		}
 		else if (format[n + 1] == 's')
 		{
-			prntd_str = our_puts(va_arg(args, *char));
-			n++;
-		       	prntd_ch += (prntd_str - 1);
+			prntd_str = our_puts(va_arg(args, char *));
+			n++, prntd_ch += (prntd_str - 1);
 		}
 		else if (format[n + 1] == '%')
 		{
@@ -44,14 +37,14 @@ prntd_ch = 0;
 		else if (format[n + 1] == 'd')
 		{
 			our_putchar(va_arg(args, int));
-			n++
+			n++;
 		}
 		else if (format[n + 1] == 'i')
 		{
 			our_putchar(va_arg(args, int));
 			n++;
 		}
-		prntd_ch += 1;
+		n++, prntd_ch += 1;
 	}
 	va_end(args);
 	return (prntd_ch);
