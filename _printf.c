@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int prntd_ch = 0, prntd_str = 0, prntd_n = 0, n = 0;
+	int prntd_ch = 0, prntd_str = 0, prntd_n = 0, prntd_n_str = 0, n = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -36,12 +36,13 @@ int _printf(const char *format, ...)
 			else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{
 				prntd_n = our_putchar(va_arg(args, int));
-				prntd_ch += prntd_n;
+				prntd_n_str = our_puts(va_arg(args, char *));
+				prntd_ch += (prntd_n + (prntd_n_str - 1));
 			}
 			else
 			{
 				our_putchar(format[n]);
-				prntd_ch++;
+				prntd_ch += 26;
 			}
 		}
 		else
@@ -49,7 +50,7 @@ int _printf(const char *format, ...)
 			our_putchar(format[n]);
 			prntd_ch++;
 		}
-		format++, prntd_ch += 1;
+		format++;
 	}
 	va_end(args);
 	return (prntd_ch);
