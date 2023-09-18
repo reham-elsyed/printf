@@ -19,8 +19,10 @@ int our_puts(char *ch);
 int our_putchar (char ch);
 
 /****print_char****/
-
+/** sterlen**/
+int _strlen(char *s);
 /*int to_print_char(char chr);*/
-int digit_char(char chr);
+/**int digit_char(char chr);*/
+int print_int_d(va_list args);
 
 #endif
