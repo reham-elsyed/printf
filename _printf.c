@@ -8,14 +8,14 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int prntd_ch = 0, prntd_str = 0, n = 0;
+	int prntd_ch = 0, prntd_str = 0, n = 0;
 	va_list args;
 
 	va_start(args, format);
 
 	while (format && format[n] != '\0')
 	{
-		if (format[n] != '%')
+		if (format[n] == '%')
 		{
 			our_putchar(format[n]);
 		}
