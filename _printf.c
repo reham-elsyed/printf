@@ -20,12 +20,12 @@ int _printf(const char *format, ...)
 		if (format[n] == '%')
 		{
 			format++;
-			if (format[n + 1] == 'c')
+			if (format[n] == 'c')
 			{
 				our_putchar(va_arg(args, int));
 				prntd_ch++;
 			}
-			else if (format[n + 1] == 's')
+			else if (format[n] == 's')
 			{
 				prntd_str = our_puts(va_arg(args, char *));
 				prntd_ch += (prntd_str - 1);
