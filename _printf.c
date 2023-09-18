@@ -2,9 +2,9 @@
 
 /**
  *_printf - function to print stout
- *@format: string
+ *@format: string input to function
  *@...: args
- *Return: prnt num
+ *Return: prnt num of printed character
  */
 int _printf(const char *format, ...)
 {
@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 
 	while (format && format[n] != '\0')
 	{
+		if (!format || (format[0] == '%' && !format[1]))
+			return (-1);
 		if (format[n] == '%')
 		{
 			format++;
