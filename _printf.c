@@ -19,15 +19,12 @@ int _printf(const char *format, ...)
 			return (-1);
 		if (format[n] == '%')
 		{
-			format++;
+			n++;
 			if (format[n] == 'c')
-			{
-				our_putchar(va_arg(args, int));
-				prntd_ch++;
-			}
+			 prntd_ch += print_char(args);
 			else if (format[n] == 's')
     prntd_str += print_string(args);
-			else if (format[n + 1] == '%')
+			else if (format[n] == '%')
 			{
 				our_putchar('%');
 				prntd_ch++;
@@ -49,7 +46,7 @@ int _printf(const char *format, ...)
 			our_putchar(format[n]);
 			prntd_ch++;
 		}
-		format++;
+		n++;
 	}
 	va_end(args);
 	return (prntd_ch);
