@@ -16,13 +16,13 @@ return (strng - s);
 }
 
 /**
-* _putchar - print string by character
+* our_putchar - print string by character
 * @ch: input character
 * Return: 0
 */
-int _putchar(int ch)
+int our_putchar (char ch)
 {
-return (write(1, &ch, 1));
+	return (write(1, &ch, 1));
 }
 #include "main.h"
 
@@ -33,7 +33,7 @@ return (write(1, &ch, 1));
  * @ascii_code: ASSCCODE.
  * Return: Always3
  */
-int append_hexa_code(char ascii_code, char buffer[], int i)
+int append_hexa_code(ascii_code, char buffer[], int i)
 {
 char map_to[] = "0123456789ABCDEF";
 /* The hexa format code-is-always 2-digits-long */

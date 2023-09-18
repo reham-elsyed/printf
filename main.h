@@ -85,5 +85,7 @@ int _getprecision(const char *format, int *n, va_list args);
 long int convert_size_unsgnd(unsigned long int nums, int sze);
 long int convert_size_number(long int nums, int size);
 int append_hexa_code(char ascii_code, char buffer[], int i);
-_putchar(ch c);
-_put(char *str);
+int our_putchar (char ch);
+int our_puts(char *ch);
+
+#endif

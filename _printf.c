@@ -11,38 +11,41 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	int prntd_ch = 0, n, printed = 0;
-	int flags, wdth, perc, size, buff_int = 0;
-	char buff[BUFF_SIZE];
-
-	if (format == NULL)
-		return (-1);
+	unsigned int prntd_ch = 0, prntd_str = 0, n;
 
 	for (n = 0; format && format[n] != '\0'; n++)
 	{
 		if (format[n] != '%')
 		{
-			buff[buff_int++] = format[n];
-			if (buff_int == BUFF_SIZE)
-				prnt_buff(buff, &buff_int);
-			prntd_ch++;
+			our_putchar(format[n]);
 		}
-		else
+		else if (format[n + 1] == 'c')
 		{
-			prnt_buff(buffer, &buff_int);
-			flags = get_flags(format, &n);
-			wdth = get_wdth(format, &n, args);
-			perc = get_precision(format, &n, args);
-			size = get_size(format, &n);
-			++n;
-			printed = handle_print(format, &n, args, buff,
-					flags, wdth, perc, size);
-			if (printed == -1)
-				return (-1);
-			prntd_ch += printed;
+			our_putchar(va_arg(args, int));
+			n++;
 		}
+		else if (format[n + 1] == 's')
+		{
+			prntd_str = our_puts(va_arg(args, *char));
+			n++, prntd_ch += (prntd_str - 1);
+		}
+		else if (format[n + 1] == '%')
+		{
+			our_putchar('%');
+			n++;
+		}
+		else if (format[n + 1] == 'd')
+		{
+			our_putchar(va_arg(args, int));
+			n++
+		}
+		else if (format[n + 1] == 'i')
+		{
+			our_putchar(va_arg(args, int));
+			n++
+		}
+		prntd_ch += 1;
 	}
-	prnt_buff(buffer, &buff_int);
 	va_end(args);
 	return (prntd_ch);
 }
