@@ -8,10 +8,12 @@
  */
 int _printf(const char *format, ...)
 {
+	unsigned int prntd_ch , prntd_str, n;
 	va_list args;
 
 	va_start(args, format);
-	unsigned int prntd_ch = 0, prntd_str = 0, n;
+prntd_ch = 0;
+	 prntd_str = 0;
 
 	for (n = 0; format && format[n] != '\0'; n++)
 	{
@@ -31,7 +33,8 @@ int _printf(const char *format, ...)
 		else if (format[n + 1] == 's')
 		{
 			prntd_str = our_puts(va_arg(args, *char));
-			n++, prntd_ch += (prntd_str - 1);
+			n++;
+		       	prntd_ch += (prntd_str - 1);
 		}
 		else if (format[n + 1] == '%')
 		{
@@ -46,7 +49,7 @@ int _printf(const char *format, ...)
 		else if (format[n + 1] == 'i')
 		{
 			our_putchar(va_arg(args, int));
-			n++
+			n++;
 		}
 		prntd_ch += 1;
 	}
