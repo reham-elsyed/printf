@@ -13,7 +13,7 @@ int our_puts(char *ch)
 		for (n_bytes = 0; ch[n_bytes] != '\0'; n_bytes++)
 		{
 			our_putchar(ch[n_bytes]);
-		} 
+		}
 	}
 	return (n_bytes);
 }

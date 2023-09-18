@@ -10,7 +10,8 @@
  * @size: Size specifier
  * Return: Number of integers printed
 */
-int print_int(va_list prnt_buffers, char buffer[], int flags, int width, int precision, int size)
+int print_int(va_list prnt_buffers, char buffer[], int flags,
+		int width, int precision, int size)
 {
 	int ntgr = va_arg(prnt_buffers, int);
 
@@ -18,15 +19,18 @@ int print_int(va_list prnt_buffers, char buffer[], int flags, int width, int pre
 }
 
 /**
- * printf_int - print integer
- *
+ * _printf - print integer
+ * @format: function to pointer
  * Return: return type of number d or i
 */
 int _printf(const char *format, ...)
 {
 	va_list ntgr;
+
 	int printed_chars = 0;
+
 	va_start(ntgr, format);
+
 	while (format && format[j])
 	{
 		if (format[j] == '%' && format[j + 1])
@@ -35,8 +39,10 @@ int _printf(const char *format, ...)
 			if (format[j] == 'i' || format[j] == 'd')
 			{
 				num = va_arg(ntgr, int);
+
 				char buffer[1024];
-				len = snprintf(buffer, sizeof(buffer); "%d", num);
+
+				len = snprintf(buffer, sizeof(buffer), num);
 				if (len > 0)
 				{
 					write(1, buffer, len);
@@ -82,16 +88,13 @@ int print_int(va_list prnt_buffes, char buffer[],
  * @width: get width.
  * @precision: Precision-specification
  * @size: Size-specifier
+ *
  * Return: return (integer)
  */
-int print_int(va_list prnt_buffes, char buffer[],
-                int flags, int width, int precision, int size)
+int print_int(va_list prnt_buffes, char buffer[], int flags,
+		int width, int precision, int size)
 {
-        UNUSED(prnt_buffes);
-        UNUSED(flags);
-        UNUSED(width);
-        UNUSED(precision);
-        UNUSED(size);
-        return (write(1, "%i", 1));
+	UNUSED(prnt_buffes), UNUSED(flags), UNUSED(width);
+	UNUSED(precision), UNUSED(size);
+	return (write(1, "%i", 1));
 }
-

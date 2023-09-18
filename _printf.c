@@ -15,6 +15,10 @@ int _printf(const char *format, ...)
 
 	for (n = 0; format && format[n] != '\0'; n++)
 	{
+		if (!format || (format[0] == '%' && format[1] == '\0'))
+		{
+			return (-1);
+		}
 		if (format[n] != '%')
 		{
 			our_putchar(format[n]);
