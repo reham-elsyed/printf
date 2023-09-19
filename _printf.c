@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *_printf - function to print stout
  *@format: string input to function
@@ -8,40 +7,43 @@
  */
 int _printf(const char *format, ...)
 {
-	int prntd_ch = 0, n = 0;
+	int prntd_ch = 0, prntd_str = 0, prntd_n = 0, orntd_n_str = 0, n = 0;
 	va_list args;
-	int (*hndl)(va_list);
 
 	va_start(args, format);
-	if (format)
+	while (format && format[n] != '\0')
 	{
-		for (n = 0; format[n] != '\0'; n++)
+		if (!format || (format[0] == '%' && !format[1]))
+			return (-1);
+		if (format[n] == '%')
 		{
-			if (format[n] != '%')
+			n++;
+			if (format[n] == 'c')
+				prntd_ch += print_char(args);
+			else if (format[n] == 's')
+				prntd_str += print_string(args);
+			else if (format[n] == '%')
 			{
-				our_putchar(format[n]);
-				n++, prntd_ch++;
+				our_putchar('%');
+				prntd_ch++;
 			}
-			else if (format[n] == '%' && format[n + 1] != '\0')
+			else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{
-				hndl = handle_now(format[n + 1]);
-				if (hndl == NULL)
-				{
-					our_putchar('%');
-					n++, prntd_ch++;
-				}
-				else
-				{
-					prntd_ch += hndl(args);
-				}
-				n++;
+				prntd_n = our_putchar(va_arg(args, int));
+				prntd_n_str = our_puts(va_arg(args, char *));
+				prntd_ch += (prntd_n + (prntd_n_str - 1));
 			}
 			else
 			{
 				our_putchar(format[n]);
-				prntd_ch++;
+				prntd_ch += 26;
 			}
 		}
+		else
+		{
+			our_putchar(format[n]), prntd_ch++;
+		}
+		n++;
 	}
 	va_end(args);
 	return (prntd_ch);
