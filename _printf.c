@@ -13,31 +13,35 @@ int _printf(const char *format, ...)
 	int (*hndl)(va_list);
 
 	va_start(args, format);
-	if (format && format[n] != '\0')
+	if (format)
 	{
-		for (format[n] != '\0'; n++; prntd_ch++)
+		while (format[n] != '\0')
 		{
 			if (format[n] != '%')
 			{
 				our_putchar(format[n]);
+				prntd_ch++;
 			}
-			else if (!format || (format[n] == '%' && format[n + 1] == '\0'))
+			else if (format[n] == '%' && format[n + 1] == '\0')
 			{
+				va_end(args);
 				return (-1);
 			}
 			else if (format[n] == '%' && format[n + 1] != '\0')
 			{
-				hndl = handle_now(forma[n + 1]);
+				hndl = handle_now(format[n + 1]);
 				if (hndl == NULL)
 				{
-					our_putchar(format[n]);
+					our_putchar('%');
+					prntd_ch++;
 				}
 				else
 				{
-					prntd_ch = (prntd_ch + hndl(args)) - 1;
-					n++;
+					prntd_ch += hndl(args);
 				}
+				n++;
 			}
+			n++;
 		}
 	}
 	va_end(args);
