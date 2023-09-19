@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 			if (format[n] != '%')
 			{
 				our_putchar(format[n]);
-				prntd_ch++;
+				n++, prntd_ch++;
 			}
 			else if (format[n] == '%' && format[n + 1] != '\0')
 			{
@@ -28,13 +28,18 @@ int _printf(const char *format, ...)
 				if (hndl == NULL)
 				{
 					our_putchar('%');
-					prntd_ch++;
+					n++, prntd_ch++;
 				}
 				else
 				{
 					prntd_ch += hndl(args);
 				}
 				n++;
+			}
+			else
+			{
+				our_putchar(format[n]);
+				prntd_ch++;
 			}
 		}
 	}
