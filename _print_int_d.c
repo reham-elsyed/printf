@@ -7,38 +7,34 @@
  */
 int print_int_d(va_list args)
 {
-	int d = va_arg(args, int);
+	int n = va_arg(args, int);
 	int digit, num, end = n % 10;
-	int i = 1;
+	int i = 0;
 	int divisor = 1;
 
-	d = d / 10;
-	num = d;
 	if (n < 0)
 	{
 		our_putchar('-');
-		d = -d;
-	}
-	if (end < 0)
-	{
-		our_putchar('-');
-		num = -num, n = -n, end = -end;
+		num = -n;
+		end = -end;
 		i++;
 	}
-	if (num > 0)
+	else
 	{
-		if (d / divisor >= 10)
-		{
-			divisor *= 10;
-		}
-		if (divisor > 0)
-		{
-			digit = (d / divisor) % 10;
-			our_putchar('0' + digit);
-			divisor /= 10;
-			i++;
-		}
+		num = 0;
 	}
+	while (num / divisor >= 10)
+	{
+		divisor *= 10;
+	}
+	while (divisor > 0)
+	{
+		digit = (d / divisor) % 10;
+		our_putchar('0' + digit);
+		divisor /= 10;
+		i++;
+	}
+	i++;
 	our_putchar(end + '0');
 	return (i);
 }

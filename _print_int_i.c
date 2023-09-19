@@ -8,33 +8,29 @@
 int print_int_i(va_list args)
 {
 	int ntgr = va_arg(args, int);
-	int prntd_ntgr = 1, n, m = ntgr % 10;
-	int num, pwr = 1;
+	int prntd_ntgr = 0, num, pwr = 1;
 
 	n = ntgr, ntgr = ntgr / 10;
 
-	if (n > 0)
+	if (ntgr < 0)
 	{
-		while ((n / 10) != 0)
-		{
-			pwr = pwr * 10, n = n / 10;
-		}
-		n = ntgr;
-		while (pwr > 0)
-		{
-			num = ntgr / pwr;
-			our_putchar(num + '0');
-			n = n - (num * pwr);
-			pwr = pwr / 10;
-			prntd_ntgr++;
-		}
+		our_putchar('-'), prntd_ntgr++;
+		ntgr -= ntgr;
 	}
-	if (m < 0)
+	num = ntgr;
+
+	while (num >= 10)
 	{
-		our_putchar('-');
-		n = -n, ntgr = -ntgr, m = -m;
+		num /= 10;
+		pwr *= 10;
+	}
+	while (pwr > 0)
+	{
+		num = ntgr / pwr;
+		our_putchar(num + '0');
 		prntd_ntgr++;
+		ntgr -= num * pwr;
+		pwr = pwr / 10;
 	}
-	our_putchar(m + '0');
 	return (prntd_ntgr);
 }

@@ -25,13 +25,11 @@ return (len);
  */
 int _strlen(char *s)
 {
-	int i;
-if (*s == '\0')
+	int len = 0;
+
+while (s[len] != '\0')
 {
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		our_putchar(s[i]);
-	}
+	len++;
 }
-return (0 + _strlen(s + 1));
+return (len);
 }

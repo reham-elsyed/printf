@@ -11,6 +11,13 @@ int ch;
 
 ch = va_arg(args, int);
 
-our_putchar(ch);
-return (1);
+if (ch <= 0 && ch <= 255)
+{
+	our_putchar(ch);
+	return (1);
+}
+else
+{
+	return (-1);
+}
 }

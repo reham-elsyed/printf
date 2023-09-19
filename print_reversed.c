@@ -6,7 +6,8 @@
 */
 int print_rev(va_list est)
 {
-	int v, lngth = 0;
+	size_t lngth = 0;
+	size_t i;
 	char *arr;
 
 	arr = va_arg(est, char *);
@@ -19,9 +20,9 @@ int print_rev(va_list est)
 	{
 		lngth++;
 	}
-	for (v = (lngth - 1); v >= 0; v--)
+	for (v = lngth; v > 0; v--)
 	{
-		our_putchar(arr[v]);
+		our_putchar(arr[v - 1]);
 	}
-	return (lngth);
+	return ((int)lngth);
 }
