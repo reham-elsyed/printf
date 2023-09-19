@@ -6,18 +6,19 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+int (*handle_now(char ch))(va_list step);
+
 /**
- * struct  prnt_struct - struct
+ * struct prntd - print struct
  * @wxz: pointer
  * @f: variable
+ * Description: array of characters to be handled
 */
-typedef struct prnt_strct
+typedef struct prntd
 {
 	char *wxz;
-	int (*f)(va_list t);
-} str_uct;
-
-int (*handle_now(char ch))(va_list step);
+	int (*f)(va_list step);
+} array_struct;
 
 /**fuction***/
 int print_char(va_list args);

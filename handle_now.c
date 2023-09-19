@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * handle_now - it's time to handle unhandled
- * @step: args
  * @ch: pointer of ch
  * Return: Always (0)
 */
@@ -9,7 +8,10 @@ int (*handle_now(char ch))(va_list step)
 {
 	(void)step;
 	int h;
-	struct prntd[] = {
+	char *wxz;
+	int (*f)(va_list step);
+
+	array_struct prntd[] = {
 		{"c", print_char},
 		{"s", print_str},
 		{"%", print_percent},
@@ -18,6 +20,7 @@ int (*handle_now(char ch))(va_list step)
 		{"r", print_rev},
 		{NULL, NULL}
 	};
+
 	for (h = 0; prntd[h].wxz != '\0'; h++)
 	{
 		if (prntd[h].wxz[0] == ch)

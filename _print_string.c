@@ -12,7 +12,7 @@ char *str = va_arg(args, char *);
 int len = 0;
 while (str[len] != '\0')
 {
-putchar(str[len]);
+our_putchar(str[len]);
 len++;
 }
 return (len);
@@ -25,8 +25,13 @@ return (len);
  */
 int _strlen(char *s)
 {
+	int i;
 if (*s == '\0')
-return (0);
-else
+{
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		our_putchar(s[i]);
+	}
+}
 return (0 + _strlen(s + 1));
 }
