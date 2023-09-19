@@ -12,11 +12,10 @@ int prntd_ch = 0, prntd_str = 0, prntd_n = 0, prntd_n_str = 0, n = 0;
 va_list args;
 
 va_start(args, format);
-
+if (!format }} (format[0] == '%' && format[1] == '\0'))
+return (-1);
 if (format && format[n] != '\0')
 {
-if (!format || (format[0] == '%' && !format[1]))
-return (-1);
 if (format[n] == '%')
 {
 n++;
