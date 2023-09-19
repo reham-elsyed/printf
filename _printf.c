@@ -13,7 +13,7 @@ va_list args;
 
 va_start(args, format);
 
-while (format && format[n] != '\0')
+if (format && format[n] != '\0')
 {
 if (!format || (format[0] == '%' && !format[1]))
 return (-1);
