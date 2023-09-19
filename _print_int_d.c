@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_int_d - Function to print a integer
+ * print_int_d - Function to print decimal
  * @args: Input arguments
  * Return: Number of characters printed (always 1)
  */

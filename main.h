@@ -24,5 +24,6 @@ int _strlen(char *s);
 /*int to_print_char(char chr);*/
 /**int digit_char(char chr);*/
 int print_int_d(va_list args);
+int print_int_i(va_list args);
 
 #endif
