@@ -1,36 +1,125 @@
 #include "main.h"
+#include <stdint.h>
+
 
 /**
- * print_int_i - Function to print a integer
- * @args: Input arguments
- * Return: Number of characters printed (always 1)
+ * print_pointer - Print a pointer address in hexadecimal format
+ * @ptr: The pointer to be printed
  */
-int print_int_i(va_list args)
+void print_pointer(void *ptr)
 {
-	int ntgr = va_arg(args, int);
-	int prntd_ntgr = 0, num, pwr = 1;
+int leading_zeros = 0;
+int i;
+char digit;
+uintptr_t value = (uintptr_t)ptr;
+char hex_digits[] = "0123456789abcdef";
+_putchar('0');
+_putchar('x');
+for (i = sizeof(uintptr_t) * 2 - 1; i >= 0; i--)
+{
+digit = hex_digits[(value >> (i * 4)) & 0xF];
+if (digit != '0' || leading_zeros || i == 0)
+{
+leading_zeros = 1;
+_putchar(digit);
+}
+}
+}
+/**
+ * print_octal - Print an octal number
+ * @n: The unsigned integer to be printed in octal
+ */
+void print_octal(unsigned int n)
+{
+char buf[32];
+int curr = 0;
+int digit, i;
 
-	n = ntgr, ntgr = ntgr / 10;
+if (n == 0)
+{
+_putchar('0');
+}
+else
+{
+while (n)
+{
+digit = n % 8;
+buf[curr++] = '0' + digit;
+n /= 8;
+}
+for (i = curr - 1; i >= 0; i--)
+{
+_putchar(buf[i]);
+}
+}
+}
+/**
+ * print_hexadecimal - function to prnt
+ * @n: input int
+ */
+void print_hexadecimal(unsigned int n)
+{
+char buf[32];
+int curr = 0;
+int digit, i;
 
-	if (ntgr < 0)
-	{
-		our_putchar('-'), prntd_ntgr++;
-		ntgr -= ntgr;
-	}
-	num = ntgr;
+if (n == 0)
+{
+_putchar('0');
+}
+else
+{
+while (n)
+{
+digit = n % 16;
+if (digit < 10)
+{
+buf[curr++] = ('0' + digit);
+}
+else
+{
+buf[curr++] = ('A' + (digit - 10));
+}
+n /= 16;
+}
+for (i = curr - 1; i >= 0; i--)
+{
+_putchar(buf[i]);
+}
+}
+}
+/**
+ * print_hexadecimal_lowercase - function to return hexa
+ * @n: input
+ */
+void print_hexadecimal_lowercase(unsigned int n)
+{
+char buf[32];
+int curr = 0;
+int digit, i;
 
-	while (num >= 10)
-	{
-		num /= 10;
-		pwr *= 10;
-	}
-	while (pwr > 0)
-	{
-		num = ntgr / pwr;
-		our_putchar(num + '0');
-		prntd_ntgr++;
-		ntgr -= num * pwr;
-		pwr = pwr / 10;
-	}
-	return (prntd_ntgr);
+if (n == 0)
+{
+_putchar('0');
+}
+else
+{
+while (n)
+{
+digit = n % 16;
+if (digit < 10)
+{
+buf[curr++] = '0' + digit;
+}
+else
+{
+buf[curr++] = 'a' + (digit - 10);
+}
+n /= 16;
+}
+for (i = curr - 1; i >= 0; i--)
+{
+_putchar(buf[i]);
+}
+}
 }

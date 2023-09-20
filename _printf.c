@@ -7,14 +7,12 @@
  */
 int _printf(const char *format, ...)
 {
-int char_count = 0;
+	int char_count = 0;
 va_list args;
 va_start(args, format);
 
-if (!format || (format[0] == '\0' && !format[1]))
-	return (-1);
-if (format[0] == '%' && format[1] == ' ' && !format[2])
-	return (-1);
+if (!format)
+return (-1);
 while (*format)
 {
 if (format[0] == '%' && format[1] != '\0')
@@ -33,12 +31,19 @@ format++;
 }
 else
 {
-_putchar(format[0]);
+_putchar('%');
+_putchar(format[1]);
+char_count += 2;
 }
+}
+else if (format[0] == '%' && format[1] == '\0')
+{
+return (-1);
 }
 else
 {
-_putchar(format[0]);
+	_putchar(format[0]);
+	char_count++;
 }
 format++;
 char_count++;

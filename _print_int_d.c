@@ -30,7 +30,7 @@ n /= 10;
 }
 for (i = curr - 1; i >= 0; i--)
 {
-__putchar(buf[i]);
+_putchar(buf[i]);
 }
 }
 }
