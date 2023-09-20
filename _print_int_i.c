@@ -28,6 +28,7 @@ _putchar(digit);
 /**
  * print_octal - Print an octal number
  * @n: The unsigned integer to be printed in octal
+ * Return: nothing
  */
 void print_octal(unsigned int n)
 {
