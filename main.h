@@ -9,26 +9,23 @@
 
 int (*handle_now(char ch))(va_list step);
 
-/**
- * struct prntd - print struct
- * @wxz: pointer
- * @f: variable
- * Description: array of characters to be handled
-*/
-typedef struct prntd
-{
-	char *wxz;
-	int (*f)(va_list step);
-} array_struct;
+/***/
+
 
 /**fuction***/
-int print_char(va_list args);
-int print_string(va_list args);
-int print_percent(va_list args);
+int print_int(int n);
+int print_pointer(void *ptr);
+int print_uint(unsigned int n);
+int print_octal(unsigned int n);
+int print_hexadecimal(unsigned int n);
+int print_hexadecimal_lowercase(unsigned int n);
+int print_string(const char *s);
+int  handle_specifier(char specifier, va_list args);
+int  handle_int_specifiers(char specifier, va_list args);
 int _printf(const char *format, ...);
 /***printfunctions***/
 
-int our_puts(char *ch);
+int our_puts(char *ch)
 int our_putchar (char ch);
 
 /****print_char****/
@@ -41,6 +38,10 @@ int print_int_d(va_list args);
 int print_int_i(va_list args);
 
 /****reversed string*****/
+int _putchar (char ch);
+
+
+/*********reversed string*****/
 int print_rev(va_list est);
 
 
