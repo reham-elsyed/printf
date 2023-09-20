@@ -13,5 +13,5 @@ while (*s)
 {
 count += _putchar(*s++);
 }
-return (count - 1);
+return (count);
 }
