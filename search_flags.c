@@ -11,8 +11,6 @@ int (*search_flags(const char *format))(va_list)
         unsigned int count = 0;
         specifier_search flags_f[] = {
                 {"c", print_char}, {"s", print_string}, {"%", print_percent},
-                {"i", print_int_i}, {"d", print_int_d}, {"b", printf_binary},
-                {"u", print_uint},
                 {NULL, NULL}
         };
         while (flags_f[count].srch)
