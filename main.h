@@ -8,12 +8,7 @@
 
 int (*handle_now(char ch))(va_list step);
 
-/**
- * struct prntd - print struct
- * @wxz: pointer
- * @f: variable
- * Description: array of characters to be handled
-*/
+/***/
 
 
 /**fuction***/
@@ -33,7 +28,7 @@ int our_puts(char *ch);
 int _putchar (char ch);
 
 
-/****reversed string*****/
+/*********reversed string*****/
 int print_rev(va_list est);
 
 
