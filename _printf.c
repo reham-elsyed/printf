@@ -29,11 +29,12 @@ int _printf(const char *format, ...)
 			return (char_count);
 
 		f = search_flags(&format[x + 1]);
-		if (f != NULL)
+		while (f != NULL)
+		{
 			char_count += f(args);
 			x += 2;
 			continue;
-
+		}
 		if (format[x + 1] == '\0')
 			return (-1);
 

@@ -13,7 +13,7 @@ int _printf_rot13(va_list args)
 
 	if (str == NULL)
 	{
-		str == "(nil)";
+		str = "(nil)";
 	}
 	for (ind = 0; str[ind]; ind++)
 	{
