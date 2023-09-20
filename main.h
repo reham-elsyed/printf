@@ -37,9 +37,6 @@ int _strlenptr(const char *s);
 int print_int_d(va_list args);
 int print_int_i(va_list args);
 
-/****reversed string*****/
-int _putchar (char ch);
-
 
 /*********reversed string*****/
 int print_rev(va_list est);
