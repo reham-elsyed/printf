@@ -43,7 +43,6 @@ return (-1);
 else
 {
 	_putchar(format[0]);
-	char_count++;
 }
 format++;
 char_count++;

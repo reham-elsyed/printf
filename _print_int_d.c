@@ -56,7 +56,7 @@ digit = n % 10;
 buf[curr++] = '0' + digit;
 n /= 10;
 }
-for (i = curr - 1; i >= 0; i++)
+for (i = curr - 1; i >= 0; i--)
 {
 _putchar(buf[i]);
 }
