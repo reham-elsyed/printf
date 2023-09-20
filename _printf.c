@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 		if (format[x + 1] == '\0')
 			return (-1);
 
-		our_putchar(format[x]);
+		_putchar(format[x]);
 		char_count++;
 		if (format[x + 1] == '%')
 			x += 2;
