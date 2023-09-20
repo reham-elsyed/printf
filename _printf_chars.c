@@ -11,9 +11,6 @@ char ch;
 
 ch = va_arg(args, int);
 
-while (ch <= 0 && ch < 255)
-{
 	_putchar(ch);
 	return (1);
-}
 }

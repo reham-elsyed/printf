@@ -12,8 +12,6 @@ int _printf(const char *format, ...)
 	int  x, char_count = 0;
 	va_list args;
 
-	int (*f)(va_list);
-
 	if (!format)
 		return (-1);
 
@@ -28,18 +26,22 @@ int _printf(const char *format, ...)
 		if (format[x] == '\0')
 			return (char_count);
 
-		f = search_flags(&format[x + 1]);
-		while (f != NULL)
+		if (*format == '%')
 		{
-			char_count += f(args);
+			format++;
+			char_count = handle_specifiers(args);
 			x += 2;
-			continue;
+			format++;
+		}
+		else
+		{
+			_putchar(format[x]);
+			char_count++;
+			format++;
 		}
 		if (format[x + 1] == '\0')
 			return (-1);
 
-		_putchar(format[x]);
-		char_count++;
 		if (format[x + 1] == '%')
 			x += 2;
 

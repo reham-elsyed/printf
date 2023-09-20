@@ -7,26 +7,10 @@
 #include <stdarg.h>
 #include <limits.h>
 
-int (*handle_now(char ch))(va_list step);
-int handle_specifier(char specifier, va_list args);
-int handle_int_specifiers(char specifier, va_list args);
+#define BUFFER_SIZE 1024
 
 
-
-/**
- * struct specifiers - look for specifiers
- * @srch: specefiers
- * @f: function associated
-*/
-typedef struct specifiers
-{
-	char *srch;
-	int (*f)(va_list);
-} specifier_search;
-
-int (*search_flags(const char *format))(va_list);
-
-/***/
+int handle_specifiers(va_list args);
 
 
 /**fuction***/
