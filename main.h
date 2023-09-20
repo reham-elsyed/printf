@@ -43,7 +43,7 @@ int _printf(const char *format, ...);
 /***printfunctions***/
 
 int our_puts(char *ch);
-int our_putchar (char ch);
+int _putchar (char ch);
 
 /****print_char****/
 /** sterlen**/

@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 	{
 		while (format[x] != '%' && format[x] != '\0')
 		{
-			our_putchar(format[x]);
+			_putchar(format[x]);
 			char_count++, x++;
 		}
 		if (format[x] == '\0')

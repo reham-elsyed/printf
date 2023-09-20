@@ -26,7 +26,7 @@ int _printf_binary(va_list bnr)
 	}
 	for (i = (binary - 1); i >= 0; i--)
 	{
-		our_putchar(memb[i] + '0');
+		_putchar(memb[i] + '0');
 		while ((b || i == 0) && (i < binary))
 		{
 			memb[i] = num % 2;

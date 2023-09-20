@@ -13,7 +13,7 @@ ch = va_arg(args, int);
 
 if (ch <= 0 && ch <= 255)
 {
-	our_putchar(ch);
+	_putchar(ch);
 	return (1);
 }
 else

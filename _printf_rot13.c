@@ -21,14 +21,14 @@ int _printf_rot13(va_list args)
 		{
 			if (str[ind] == direct[inx])
 			{
-				our_putchar(rotated[inx]);
+				_putchar(rotated[inx]);
 				count++;
 				f = 1;
 			}
 		}
 		if (!f)
 		{
-			our_putchar(str[ind]);
+			_putchar(str[ind]);
 			count++;
 		}
 	}
