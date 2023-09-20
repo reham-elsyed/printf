@@ -1,11 +1,14 @@
 #include "main.h"
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 
 /**
  * print_pointer - Print a pointer address in hexadecimal format
+ * Description: pointer
  * @ptr: The pointer to be printed
- * return: count
+ * Return: on Success return (count)
  */
 int print_pointer(void *ptr)
 {
@@ -61,9 +64,10 @@ return (count);
 }
 /**
  * print_hexadecimal - function to prnt
+ * Descsription: hexadecimal
  * @n: input int
- * return: count
- */
+ * Return: count
+*/
 int print_hexadecimal(unsigned int n)
 {
 char buf[32];

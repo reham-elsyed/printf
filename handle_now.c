@@ -58,7 +58,7 @@ return (count);
 *@args: The variable arguments list
 *Return: count
 */
-int  handle_specifier(char specifier, va_list args)
+int handle_specifier(char specifier, va_list args)
 {
 	int count = 0;
 switch (specifier)

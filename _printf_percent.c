@@ -2,7 +2,6 @@
 
 /**
  * print_percent - Function to print a percent character
- * @args: Input arguments (not used)
  * Return: Always returns 1
  */
 

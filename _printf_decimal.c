@@ -12,7 +12,7 @@ int curr = 0;
 int i, count;
 int digit;
 
-count =0;
+count = 0;
 if (n < 0)
 {
 count += _putchar('-');
@@ -39,16 +39,16 @@ return (count);
 }
 /**
  * print_uint - function to print unint
- *@n: input num
-Return: count
- */
+ * @n: input num
+ * Return: count
+*/
 int print_uint(unsigned int n)
 {
 char buf[32];
 int curr = 0;
 int digit, i, count;
 
-count =0;
+count = 0;
 if (n == 0)
 {
 count += _putchar('0');

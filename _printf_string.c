@@ -18,7 +18,8 @@ return (count);
 /**
  * _strlenptr - function that reurn length of constant character pointer
  * @s: input char ptr
- * return: len
+ * Description: to knoq the length of a string
+ * Return: len
 */
 int _strlenptr(const char *s)
 {

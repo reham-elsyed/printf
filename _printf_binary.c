@@ -2,7 +2,7 @@
 /**
  * _printf_binary - print binary numbers
  * @bnr: arguments
- * Return; return (1);
+ * Return: on success return (count)
 */
 int _printf_binary(va_list bnr)
 {
@@ -32,7 +32,7 @@ int _printf_binary(va_list bnr)
 			memb[i] = num % 2;
 			num /= 2;
 			i++;
-		} 
+		}
 	}
 	free(memb);
 	return (count);
