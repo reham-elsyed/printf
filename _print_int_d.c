@@ -5,20 +5,22 @@
  * @n: Input arguments
  * Return: Number of characters printed (always 1)
  */
-void print_int(int n)
+int print_int(int n)
 {
 char buf[32];
 int curr = 0;
-int i;
+int i, count;
 int digit;
+
+count =0;
 if (n < 0)
 {
-_putchar('-');
+count += _putchar('-');
 n = -n;
 }
 if (n == 0)
 {
-_putchar('0');
+count += _putchar('0');
 }
 else
 {
@@ -30,23 +32,26 @@ n /= 10;
 }
 for (i = curr - 1; i >= 0; i--)
 {
-_putchar(buf[i]);
+count += _putchar(buf[i]);
 }
 }
+return (count);
 }
 /**
  * print_uint - function to print unint
  *@n: input num
+Return: count
  */
-void print_uint(unsigned int n)
+int print_uint(unsigned int n)
 {
 char buf[32];
 int curr = 0;
-int digit, i;
+int digit, i, count;
 
+count =0;
 if (n == 0)
 {
-_putchar('0');
+count += _putchar('0');
 }
 else
 {
@@ -58,7 +63,8 @@ n /= 10;
 }
 for (i = curr - 1; i >= 0; i--)
 {
-_putchar(buf[i]);
+count += _putchar(buf[i]);
 }
 }
+return (count);
 }

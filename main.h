@@ -12,15 +12,15 @@ int (*handle_now(char ch))(va_list step);
 
 
 /**fuction***/
-void print_int(int n);
-void print_pointer(void *ptr);
-void print_uint(unsigned int n);
-void print_octal(unsigned int n);
-void print_hexadecimal(unsigned int n);
-void print_hexadecimal_lowercase(unsigned int n);
-void print_string(const char *s);
-void handle_specifier(char specifier, va_list args);
-void handle_int_specifiers(char specifier, va_list args);
+int print_int(int n);
+int print_pointer(void *ptr);
+int print_uint(unsigned int n);
+int print_octal(unsigned int n);
+int print_hexadecimal(unsigned int n);
+int print_hexadecimal_lowercase(unsigned int n);
+int print_string(const char *s);
+int  handle_specifier(char specifier, va_list args);
+int  handle_int_specifiers(char specifier, va_list args);
 int _printf(const char *format, ...);
 /***printfunctions***/
 

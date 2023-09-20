@@ -6,10 +6,12 @@
  * Return: Number of characters printed
  */
 
-void print_string(const char *s)
+int print_string(const char *s)
 {
+	int count = 0;
 while (*s)
 {
-_putchar(*s++);
+count += _putchar(*s++);
 }
+return (count - 1);
 }

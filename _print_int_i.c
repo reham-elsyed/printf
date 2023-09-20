@@ -5,40 +5,44 @@
 /**
  * print_pointer - Print a pointer address in hexadecimal format
  * @ptr: The pointer to be printed
+ * return: count
  */
-void print_pointer(void *ptr)
+int print_pointer(void *ptr)
 {
+	int count = 0;
 int leading_zeros = 0;
 int i;
 char digit;
 uintptr_t value = (uintptr_t)ptr;
 char hex_digits[] = "0123456789abcdef";
-_putchar('0');
-_putchar('x');
+count += _putchar('0');
+count += _putchar('x');
 for (i = sizeof(uintptr_t) * 2 - 1; i >= 0; i--)
 {
 digit = hex_digits[(value >> (i * 4)) & 0xF];
 if (digit != '0' || leading_zeros || i == 0)
 {
 leading_zeros = 1;
-_putchar(digit);
+count += _putchar(digit);
 }
 }
+return (count);
 }
 /**
  * print_octal - Print an octal number
  * @n: The unsigned integer to be printed in octal
- * Return: nothing
+ * Return: count
  */
-void print_octal(unsigned int n)
+int print_octal(unsigned int n)
 {
 char buf[32];
 int curr = 0;
-int digit, i;
+int digit, i, count;
+count = 0;
 
 if (n == 0)
 {
-_putchar('0');
+count += _putchar('0');
 }
 else
 {
@@ -50,23 +54,26 @@ n /= 8;
 }
 for (i = curr - 1; i >= 0; i--)
 {
-_putchar(buf[i]);
+count += _putchar(buf[i]);
 }
 }
+return (count);
 }
 /**
  * print_hexadecimal - function to prnt
  * @n: input int
+ * return: count
  */
-void print_hexadecimal(unsigned int n)
+int print_hexadecimal(unsigned int n)
 {
 char buf[32];
 int curr = 0;
-int digit, i;
+int digit, i, count;
+count = 0;
 
 if (n == 0)
 {
-_putchar('0');
+count += _putchar('0');
 }
 else
 {
@@ -85,23 +92,26 @@ n /= 16;
 }
 for (i = curr - 1; i >= 0; i--)
 {
-_putchar(buf[i]);
+count += _putchar(buf[i]);
 }
 }
+return (count);
 }
 /**
  * print_hexadecimal_lowercase - function to return hexa
  * @n: input
+ * Return: (coun
  */
-void print_hexadecimal_lowercase(unsigned int n)
+int print_hexadecimal_lowercase(unsigned int n)
 {
 char buf[32];
 int curr = 0;
-int digit, i;
+int digit, i, count;
+count = 0;
 
 if (n == 0)
 {
-_putchar('0');
+count += _putchar('0');
 }
 else
 {
@@ -120,7 +130,8 @@ n /= 16;
 }
 for (i = curr - 1; i >= 0; i--)
 {
-_putchar(buf[i]);
+count += _putchar(buf[i]);
 }
 }
+return (count);
 }
