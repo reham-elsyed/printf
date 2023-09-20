@@ -6,19 +6,34 @@
 */
 int _printf_binary(va_list bnr)
 {
-	int i, b, count = 0;
+	int i, b, binary = 0;
+	int *memb;
 	unsigned int num;
 
-	b= (num >> i) & 1;
-	num - va_arg(bnr, unsigned int);
+	b = (num >> i) & 1;
+	num = va_arg(bnr, unsigned int);
 
-	for (i = 31; i >= 0; i--)
+	while ((n / 2) != 0)
 	{
-		if (b || i == 0)
+		n /= 2, binary++;
+	}
+	binary++;
+	memb = malloc(binary * sizeof(int));
+	if (memb == NULL)
+	{
+		free(memb);
+		return (0);
+	}
+	for (i = (binary - 1); i >= 0; i--)
+	{
+		our_putchar(memb[i] + '0');
+		while ((b || i == 0) && (i < binary))
 		{
-			our_putchar('0' + b);
-			count++;
+			memb[i] = num % 2;
+			num /= 2;
+			i++;
 		} 
 	}
+	free(memb);
 	return (count);
 }

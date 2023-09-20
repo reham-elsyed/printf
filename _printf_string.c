@@ -33,3 +33,18 @@ while (s[len] != '\0')
 }
 return (len);
 }
+/**
+ * _strlenptr - function that reurn length of constant character pointer
+ * @s: input char ptr
+ * return: len
+*/
+int _strlenptr(const char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
+}

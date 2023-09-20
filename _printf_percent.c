@@ -6,9 +6,8 @@
  * Return: Always returns 1
  */
 
-int print_percent(va_list args)
+int print_percent(void)
 {
-(void)args;
 our_putchar('%');
 return (1);
 }
