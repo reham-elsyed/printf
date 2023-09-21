@@ -5,12 +5,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <limits.h>
 
-#define BUFFER_SIZE 1024
+int (*handle_now(char ch))(va_list step);
 
-
-int handle_specifiers(va_list args);
+/***/
 
 
 /**fuction***/
@@ -24,26 +22,16 @@ int print_string(const char *s);
 int  handle_specifier(char specifier, va_list args);
 int  handle_int_specifiers(char specifier, va_list args);
 int _printf(const char *format, ...);
+int _printf_rot13(va_list args);
+int _printf_binary(va_list bnr);
 /***printfunctions***/
 
 int our_puts(char *ch);
 int _putchar (char ch);
 
-/****print_char****/
-/** sterlen**/
-int _strlen(char *s);
-int _strlenptr(const char *s);
-int print_percent(void);
-/*int to_print_char(char chr);*/
-/**int digit_char(char chr);*/
-int print_int_d(va_list args);
-int print_int_i(va_list args);
-int print_char(va_list args);
-int _printf_binary(va_list bnr);
-
 
 /*********reversed string*****/
 int print_rev(va_list est);
-int _printf_rot13(va_list args);
+
 
 #endif
