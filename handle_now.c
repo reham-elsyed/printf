@@ -56,7 +56,7 @@ return (count);
 *handle_specifier - Handle character and string specifiers
 *@specifier: The format string
 *@args: The variable arguments list
-*Return: count
+*Return: count printed characters
 */
 int  handle_specifier(char specifier, va_list args)
 {
