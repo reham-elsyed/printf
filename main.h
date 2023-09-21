@@ -22,6 +22,9 @@ int print_string(const char *s);
 int  handle_specifier(char specifier, va_list args);
 int  handle_int_specifiers(char specifier, va_list args);
 int _printf(const char *format, ...);
+
+/*** roti3, binar****/
+
 int _printf_rot13(va_list args);
 int _printf_binary(va_list bnr);
 /***printfunctions***/
