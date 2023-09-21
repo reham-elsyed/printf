@@ -30,11 +30,11 @@ format[1] == 'i' || format[1] == 'u' || format[1] == 'p')
 char_count += handle_int_specifiers(format[1], args);
 format++;
 }
-else if (formar[1] == 'R')
+/**else if (formar[1] == 'R')
 {
 	char_count += _printf_rot13(args);
 	format++;
-}
+}*/
 else
 {
 _putchar('%');
